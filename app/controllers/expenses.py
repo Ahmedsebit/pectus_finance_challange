@@ -1,13 +1,14 @@
 from flask import Blueprint, request, jsonify
-from app.utils.expenses import get_expenses_data, aggregate_expenses
+from app.utils.expenses import get_expenses_data
 
 
 expenses_bp = Blueprint(
     'expenses_bp', __name__,
 )
 
-@expenses_bp.route('/expanses_data', methods=['GET'])
+@expenses_bp.route('/', methods=['GET'])
 def get_expanses_data_api():
+    
     data = request.args
     fields = data.get('fields')
     filter_data = {
@@ -21,13 +22,5 @@ def get_expanses_data_api():
     order = data.get('order')
     
     expenses_data = get_expenses_data(fields, filter_data, sort, order)
-    return expenses_data
-
-
-@expenses_bp.route('/expanses_data/aggregate_expenses', methods=['GET'])
-def get_aggregate_expenses_api():
-    data = request.args
-    aggregate_option = data.get('by')
     
-    expenses_data = aggregate_expenses(aggregate_option)
     return expenses_data

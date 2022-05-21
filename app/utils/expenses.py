@@ -1,6 +1,7 @@
 import re
 import csv
 import operator
+from flask import current_app
 
 
 def get_expenses_data(fields, filter_data, sort_items, order):
@@ -21,7 +22,8 @@ def get_expenses_data(fields, filter_data, sort_items, order):
 
 def read_file():
     expenses_data = []
-    with open("expenses.csv", 'r') as file:
+    file_location = current_app.config['FILE_LOCATION']
+    with open(file_location, 'r') as file:
         csvreader = csv.reader(file)
         header = next(csvreader)
         for row in csvreader:
@@ -70,29 +72,11 @@ def sort_data(data,sort_items,order):
     data = list(data)
     if sort_items:
         sort_items = sort_items.split(",")
-    
+        
     if sort_items:
         if order == 'desc':
             return sorted(data, key = lambda i: tuple([i[item] for item in sort_items]), reverse=True)
         data = sorted(data, key = lambda i: tuple([i[item] for item in sort_items]))
-    
-    return data
-
-
-def aggregate_expenses(aggregate_option):
-    expense_data = get_expenses_data(None, None, None, None)
-    agregate_data = {}
-    for data in expense_data:
-        value = data["amount"]
-        value = re.sub("€","",value)
-        value = re.sub(",","",value)
-        if data[aggregate_option] in agregate_data:
-            agregate_data[data[aggregate_option]] += float(value)
-        else:
-            agregate_data[data[aggregate_option]] = float(value)
-    for key,value in agregate_data.items():
-        value = f'{value}€'
-        agregate_data[key] = value
         
-    return agregate_data
+    return data
     

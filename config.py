@@ -13,6 +13,7 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_POSTGRESS_URL')
     JSON_SORT_KEYS = False
     PRESERVE_CONTEXT_ON_EXCEPTION = False
+    FILE_LOCATION = "expenses.csv"
 
 
 class DevelopmentConfig(Config):
@@ -25,6 +26,7 @@ class TestingConfig(Config):
     TESTING = True
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = "postgresql://myuser:mypass@localhost:5432/pectus_finince_test"
+    FILE_LOCATION = "tests/test_expenses.csv"
 
 
 class StagingConfig(Config):
