@@ -21,7 +21,7 @@ def get_aggregate_api():
       200:
         description: A calculates aggregate
         examples:
-          rgb: {
+          aggregates: {
               'IT': '3400.0€', 
               'HR': '6521.0€',
               'Sales': '39211.0€', 

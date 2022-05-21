@@ -54,11 +54,7 @@ def get_expanses_data_api():
       200:
         description: A calculates aggregate
         examples:
-          rgb: {
-              'IT': '3400.0€', 
-              'HR': '6521.0€',
-              'Sales': '39211.0€', 
-              'Finance': '20335.0€'}
+          rgb: []
     """
     
     data = request.args
