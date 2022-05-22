@@ -6,6 +6,7 @@
 - Create environment `virtualenv --python=python3 env`
 - Activate environment `source env/bin.activate`
 - Install requirments `pip install -r requirements.txt`
+- run application `flask run`
 
 
 ## Testing
@@ -16,5 +17,4 @@
 - http://localhost:5000/apidocs/#/
 
 ## APIs
-- http://127.0.0.1:5000/api/pectus_finance/expenses
-- http://127.0.0.1:5000/api/pectus_finance/aggregates
+- http://127.0.0.1:5000/api/littlepay/trips/upload
