@@ -14,7 +14,6 @@ class TripsContollerTestCase(unittest.TestCase):
            
     def test_get_aggregates_by_departments(self):
         aggregate_data = get_aggregates("departments")
-        print(aggregate_data)
         assert aggregate_data == {
             'IT': '3400.0€', 
             'HR': '6521.0€', 
@@ -25,7 +24,6 @@ class TripsContollerTestCase(unittest.TestCase):
     
     def test_get_aggregates_by_member_name(self):
         aggregate_data = get_aggregates("member_name")
-        print(aggregate_data)
         assert aggregate_data == {
             'Sam': '7979.0€', 
             'George': '20588.0€', 
@@ -37,7 +35,6 @@ class TripsContollerTestCase(unittest.TestCase):
         
     def test_get_aggregates_by_dates(self):
         aggregate_data = get_aggregates("date")
-        print(aggregate_data)
         assert aggregate_data == {
             '10/2/2021': '1200.0€', 
             '2/4/2021': '1400.0€', 
@@ -62,7 +59,6 @@ class TripsContollerTestCase(unittest.TestCase):
         
     def test_get_aggregates_by_departments(self):
         aggregate_data = get_aggregates("project_name")
-        print(aggregate_data)
         assert aggregate_data == {
             'Gaama': '29627.0€', 
             'Mars-NS1': '3943.0€', 
